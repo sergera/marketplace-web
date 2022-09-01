@@ -1,0 +1,14 @@
+.create-order {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.create-order__content {
+	padding: 1rem;
+}
+
+.create-order__content > * {
+	margin-bottom: 2rem;
+}

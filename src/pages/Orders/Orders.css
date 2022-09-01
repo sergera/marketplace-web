@@ -1,0 +1,15 @@
+.orders {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.orders__content {
+	padding: 1rem;
+	width: 100%;
+}
+
+.orders__content > * {
+	margin-bottom: 1rem;
+}
