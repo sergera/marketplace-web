@@ -7,7 +7,7 @@ export interface Order {
 };
 
 export interface BackendOrder {
-	order_id: string;
+	id: string;
 	price: string;
 	status: string;
 	date: string;

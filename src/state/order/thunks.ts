@@ -49,7 +49,7 @@ const getRange = (page: number, pageSize: number): OrderRange => {
 const convertOrderList = (backendOrders: BackendOrder[]): Order[] => {
 	return backendOrders.map((order: BackendOrder): Order => {
 		return {
-			orderId: order.order_id,
+			orderId: order.id,
 			price: formatPriceString(order.price),
 			status: order.status,
 			date: order.date.substring(0,10),
