@@ -15,17 +15,17 @@ export function OrderCard({
 			<div style={{gridTemplateColumns:"1fr"}} className="order-card__header">
 				{unconfirmed &&
 				<div className={"order-card__unconfirmed order-card__status"}>
-						<p>For Sale!</p>
+						<p>unconfirmed</p>
 				</div>
 				}
 				{inProgress &&
 				<div className={"order-card__in-progress order-card__status"}>
-						<p>Owned</p>
+						<p>in progress</p>
 				</div>
 				}
 				{ready &&
 				<div className={"order-card__ready order-card__status"}>
-						<p>For Sale!</p>
+						<p>ready</p>
 				</div>
 				}
 			</div>
