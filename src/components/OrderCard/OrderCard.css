@@ -30,12 +30,22 @@
 }
 
 .order-card__ready {
-	background-color: var(--btn--secondary);
+	background-color: var(--light-green);
 	color: var(--foreground);
 }
 
 .order-card__in-progress {
-	background-color: var(--btn--primary);
+	background-color: var(--light-blue);
+	color: var(--foreground);
+}
+
+.order-card__in-transit {
+	background-color: var(--light-red);
+	color: var(--foreground);
+}
+
+.order-card__delivered {
+	background-color: var(--light-gold);
 	color: var(--foreground);
 }
 

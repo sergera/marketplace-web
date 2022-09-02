@@ -9,6 +9,8 @@ export function OrderCard({
 	const unconfirmed = order.status === ORDER_STATUSES.unconfirmed;
 	const inProgress = order.status === ORDER_STATUSES.inProgress;
 	const ready = order.status === ORDER_STATUSES.ready;
+	const inTransit = order.status === ORDER_STATUSES.inTransit;
+	const delivered = order.status === ORDER_STATUSES.delivered;
 
 	return (
 		<div className="order-card">
@@ -26,6 +28,16 @@ export function OrderCard({
 				{ready &&
 				<div className={"order-card__ready order-card__status"}>
 						<p>ready</p>
+				</div>
+				}
+				{inTransit &&
+				<div className={"order-card__in-transit order-card__status"}>
+						<p>in transit</p>
+				</div>
+				}
+				{delivered &&
+				<div className={"order-card__delivered order-card__status"}>
+						<p>delivered</p>
 				</div>
 				}
 			</div>
