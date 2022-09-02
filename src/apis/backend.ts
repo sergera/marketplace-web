@@ -5,6 +5,6 @@ import { getBackendURL } from "../env";
 const backendURL = getBackendURL();
 
 export const backend = axios.create({
-	baseURL: backendURL,
+	baseURL: `http://${backendURL}`,
 	headers: {'Content-Type': 'application/json'}
 });

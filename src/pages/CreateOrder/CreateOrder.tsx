@@ -55,7 +55,6 @@ export function CreateOrder() {
 					status: ORDER_STATUSES.unconfirmed,
 				})
 				store.dispatch(openSuccessNotification(`Successfully created order #${res.data.id}`));
-				store.dispatch(getOrders());
 				resetFields();
 			} catch (err) {
 				Log.error({

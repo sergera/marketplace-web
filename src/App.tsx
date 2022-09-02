@@ -15,13 +15,15 @@ import { ConnectedToastContainer as ToastContainer } from './components/ToastCon
 
 import { ErrorBoundary } from "./components/ErrorBoundary";
 
+import { listenForOrders } from "./listener";
+
 import { ROUTER_PATHS } from "./constants";
 
 import './App.css';
 
 export function App() {
-
-  return (
+	listenForOrders();
+	return (
 		<div className="app">
 			<ModalContainer />
 			<NotificationContainer />

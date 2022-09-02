@@ -38,7 +38,7 @@ export const getOrderRange = createAsyncThunk<
 	}
 );
 
-const getRange = (page: number, pageSize: number): OrderRange => {
+export const getRange = (page: number, pageSize: number): OrderRange => {
 	if(page === 1) {
 		return {start: 1, end: pageSize + 1};
 	} else {
@@ -46,19 +46,23 @@ const getRange = (page: number, pageSize: number): OrderRange => {
 	}
 };
 
-const convertOrderList = (backendOrders: BackendOrder[]): Order[] => {
+export const convertOrder = (backendOrder: BackendOrder): Order => {
+	return {
+		orderId: backendOrder.id,
+		price: formatPriceString(backendOrder.price),
+		status: backendOrder.status,
+		date: backendOrder.date.substring(0,10),
+		time: backendOrder.date.substring(11,19),
+	}
+};
+
+export const convertOrderList = (backendOrders: BackendOrder[]): Order[] => {
 	return backendOrders.map((order: BackendOrder): Order => {
-		return {
-			orderId: order.id,
-			price: formatPriceString(order.price),
-			status: order.status,
-			date: order.date.substring(0,10),
-			time: order.date.substring(11,19),
-		}
+		return convertOrder(order);
 	});
 };
 
-const formatPriceString = (price: string): string => {
+export const formatPriceString = (price: string): string => {
 	for (var i = price.length - 1; i >= 0; i--) {
 		if(price[i] === "0") {
 			price = price.slice(0, -1);

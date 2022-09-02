@@ -37,6 +37,14 @@ const orderSlice = createSlice({
 			}
 			state.pageSize = newPageSize;
 		},
+		updateDisplayedOrder(state:OrderSlice, action:PayloadAction<Order>) {
+			let incomingOrder = action.payload;
+			let indexOfOrder = state.displayList.findIndex((o) => o.orderId === incomingOrder.orderId)
+			if(indexOfOrder !== -1) {
+				/* if order is displayed */
+				state.displayList[indexOfOrder].status = incomingOrder.status
+			}
+		},
 	},
 	extraReducers: (builder) => {
 		builder.addCase(getOrderRange.fulfilled, (state:OrderSlice, action:PayloadAction<Order[]>) => {
@@ -64,6 +72,7 @@ export const {
 	previousPage,
 	resetPagination,
 	choosePageSize,
+	updateDisplayedOrder,
 } = orderSlice.actions;
 
 
