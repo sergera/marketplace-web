@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import { Button } from "../../components/UI/Button";
 import { MainDishInput } from "../../components/MainDishInput";
@@ -9,16 +9,18 @@ import { emptyMainDish } from "../../components/MainDishInput";
 import { emptySideDish } from "../../components/SideDishInput";
 import { emptyDrink } from "../../components/DrinkInput";
 import { Log } from "../../logger";
+import { backend } from "../../apis";
+import { getErrorMessage } from "../../error";
 
 import { store } from "../../state";
-import { openInfoToast, openSuccessToast } from '../../state/toast';
 import { getOrders } from "../../state/order";
 import { openModal } from "../../state/modal";
 
 import { MainDish } from "../../components/MainDishInput/MainDishInput.types";
 import { SideDish } from "../../components/SideDishInput/SideDishInput.types";
 import { Drink } from "../../components/DrinkInput/DrinkInput.types";
-import { MODAL_TYPES } from '../../constants';
+import { MODAL_TYPES, ORDER_STATUSES } from '../../constants';
+import { openSuccessNotification, openErrorNotification } from "../../state/notification";
 
 export function CreateOrder() {
 	let [mainDish, setMainDish] = useState<MainDish>(emptyMainDish());
@@ -47,8 +49,21 @@ export function CreateOrder() {
 
 	let submitOrder = async () => {
 		if(mainDish.isValid || sideDish.isValid || drink.isValid) {
-			// submit order
-			resetFields();
+			try {
+				let res = await backend.post('/create', {
+					price: mainDish.price + sideDish.price + drink.price,
+					status: ORDER_STATUSES.unconfirmed,
+				})
+				store.dispatch(openSuccessNotification(`Successfully created order #${res.data.id}`));
+				store.dispatch(getOrders());
+				resetFields();
+			} catch (err) {
+				Log.error({
+					description: "error creating order",
+					msg: getErrorMessage(err),
+				})
+				store.dispatch(openErrorNotification(`Error creating order: ${getErrorMessage(err)}`))
+			}
 		} else {
 			store.dispatch(openModal(MODAL_TYPES.incompleteForm));
 		}
