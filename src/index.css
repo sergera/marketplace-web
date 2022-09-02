@@ -63,9 +63,9 @@
 	--dark-gold: #5a4f09;
 
 	/* app */
-	--background: var(--black);
+	--background: var(--dark);
 	--background-text: var(--light);
-	--foreground: var(--dark);
+	--foreground: var(--dark-blue);
 	--foreground-text: var(--light);
 
 	/* button */

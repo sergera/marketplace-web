@@ -6,6 +6,7 @@
 	align-items: center;
 	border-radius: 20px;
 	background-color: var(--foreground);
+	color: var(--foreground-text);
 }
 
 .order-card__header {
@@ -21,32 +22,32 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-
 }
 
 .order-card__unconfirmed {
 	background-color: var(--foreground-text);
-	color: var(--foreground);	
+	color: var(--dark);
+}
+
+.order-card__in-progress {
+	background-color: var(--dark);
+	color: var(--light);
+	outline: solid 2px var(--light);
 }
 
 .order-card__ready {
 	background-color: var(--light-green);
-	color: var(--foreground);
-}
-
-.order-card__in-progress {
-	background-color: var(--light-blue);
-	color: var(--foreground);
+	color: var(--dark);
 }
 
 .order-card__in-transit {
 	background-color: var(--light-red);
-	color: var(--foreground);
+	color: var(--dark);
 }
 
 .order-card__delivered {
 	background-color: var(--light-gold);
-	color: var(--foreground);
+	color: var(--dark);
 }
 
 .order-card__body {
