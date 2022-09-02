@@ -1,5 +1,5 @@
 export const ORDER_STATUSES = {
-	unconfirmed: "UNCONFIRMED",
-	inProgress: "IN_PROGRESS",
-	ready: "READY",
+	unconfirmed: "unconfirmed",
+	inProgress: "in_progress",
+	ready: "ready",
 };
