@@ -38,7 +38,7 @@ export function OrderCard({
 			</div>
 				<div className="order-card__price">
 					<div className="order-card__price-value">
-						{order.price + " $"}
+						{"$"+order.price}
 					</div>
 				</div>
 			</div>
