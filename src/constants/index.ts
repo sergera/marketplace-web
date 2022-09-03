@@ -1,5 +1,5 @@
 export * from './OrderTypes';
-export * from './OrderStatuses';
+export * from './OrderStatus';
 export * from './RouterPaths';
 export * from './Keys';
 export * from './ModalTypes';

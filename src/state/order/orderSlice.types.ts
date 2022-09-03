@@ -15,6 +15,7 @@ export interface BackendOrder {
 
 export interface OrderSlice {
 	displayList: Order[];
+	sort: string;
 	page: number;
 	pageSize: number;
 	nextPageExists: boolean;

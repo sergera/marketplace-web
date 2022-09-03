@@ -14,3 +14,8 @@ export const DRINK_TYPES = {
 	soda: "SODA",
 	juice: "JUICE",
 };
+
+export const ORDER_SORT_TYPES = {
+	newest: "NEWEST",
+	oldest: "OLDEST",
+};

@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { connect } from 'react-redux';
 
+import { ConnectedOrderOptions as OrderOptions } from '../../components/OrderOptions';
 import { ConnectedPage as Page } from '../../components/Page';
 import { OrderCard } from '../../components/OrderCard';
 
@@ -21,6 +22,9 @@ export function Orders({
   return (
     <div className="orders">
 			<div className="orders__content">
+				<OrderOptions
+					handleSelect={getOrders}
+				/>
 				<Page
 					handleClickNext={getOrders}
 					handleClickPrevious={getOrders}

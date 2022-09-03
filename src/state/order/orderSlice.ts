@@ -8,6 +8,7 @@ import { PAGE_SIZE_TYPES } from '../../constants';
 
 export const initialState: OrderSlice = {
 	displayList: [],
+	sort: ORDER_SORT_TYPES.newest,
 	page: 1,
 	pageSize: PAGE_SIZE_TYPES.twelve,
 	nextPageExists: false,
@@ -36,6 +37,10 @@ const orderSlice = createSlice({
 				state.page = Math.floor(firstStarNumber/newPageSize) + 1;
 			}
 			state.pageSize = newPageSize;
+		},
+		chooseSort(state:OrderSlice, action:PayloadAction<string>) {
+			state.page = 1;
+			state.sort = action.payload;
 		},
 		updateDisplayedOrder(state:OrderSlice, action:PayloadAction<Order>) {
 			let incomingOrder = action.payload;
@@ -72,6 +77,7 @@ export const {
 	previousPage,
 	resetPagination,
 	choosePageSize,
+	chooseSort,
 	updateDisplayedOrder,
 } = orderSlice.actions;
 

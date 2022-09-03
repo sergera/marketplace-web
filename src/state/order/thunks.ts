@@ -4,6 +4,7 @@ import { backend } from '../../apis';
 
 import { Order, BackendOrder, OrderRange } from './orderSlice.types';
 import { RootState } from '..';
+import { ORDER_SORT_TYPES } from '../../constants';
 
 export const getOrders = createAsyncThunk<
 	void, // return type
@@ -15,7 +16,16 @@ export const getOrders = createAsyncThunk<
 		let { getState, dispatch } = thunkAPI;
 		const orderState = getState().order;
 		const range = getRange(orderState.page, orderState.pageSize);
-		dispatch(getOrderRange({start: range.start, end: range.end, oldestFirst: false}));
+		switch (orderState.sort) {
+			case ORDER_SORT_TYPES.newest:
+				dispatch(getOrderRange({start: range.start, end: range.end, oldestFirst: false}));
+				break;
+			case ORDER_SORT_TYPES.oldest:
+				dispatch(getOrderRange({start: range.start, end: range.end, oldestFirst: true}));
+				break;
+			default:
+				dispatch(getOrderRange({start: range.start, end: range.end, oldestFirst: false}));
+		}
 	}
 );
 

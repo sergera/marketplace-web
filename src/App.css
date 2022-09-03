@@ -24,6 +24,7 @@
 @import './components/ToastContainer/ErrorToast/ErrorToast.css';
 @import './components/TeamPortrait/TeamPortrait.css';
 @import './components/Page/Page.css';
+@import './components/OrderOptions/OrderOptions.css';
 @import './components/OrderCard/OrderCard.css';
 @import './components/MainDishInput/MainDishInput.css';
 @import './components/SideDishInput/SideDishInput.css';
