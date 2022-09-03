@@ -6,6 +6,19 @@ import { Order, BackendOrder, OrderRange } from './orderSlice.types';
 import { RootState } from '..';
 import { ORDER_SORT_TYPES } from '../../constants';
 
+export const updateDisplay = createAsyncThunk<
+	Order[], // return type
+	BackendOrder[], // first argument type
+	{ state: RootState }
+>(
+	"order/updateDisplay",
+	async(backendOrders, thunkAPI) => {
+		let { getState, dispatch } = thunkAPI;
+		if(getState().order.displayList.length === 0) await dispatch(getOrders());
+		return convertOrderList(backendOrders);
+	}
+);
+
 export const getOrders = createAsyncThunk<
 	void, // return type
 	void, // first argument type
