@@ -44,17 +44,17 @@
 }
 
 .order-card__ready {
-	background-color: var(--light-green);
-	color: var(--dark);
+	background-color: var(--light-blue);
+	color: var(--light);
 }
 
 .order-card__in-transit {
-	background-color: var(--light-red);
+	background-color: var(--light-gold);
 	color: var(--dark);
 }
 
 .order-card__delivered {
-	background-color: var(--light-gold);
+	background-color: var(--light-green);
 	color: var(--dark);
 }
 
