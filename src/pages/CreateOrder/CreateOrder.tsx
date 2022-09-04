@@ -50,12 +50,6 @@ export function CreateOrder() {
 		setRapidFireNumber(numStr)
 	}
 
-	let wait = () => {
-		setTimeout(() => {
-			submitRapidFire()
-		}, 5000)
-	}
-
 	let submitRapidFire = () => {
 		if(isValidRapidFireNumber) {
 			const max = Math.floor(Number(rapidFireNumber));
@@ -161,7 +155,7 @@ export function CreateOrder() {
 				<Button
 					name="rapid fire!"
 					styleClass="btn-warning"
-					handleClick={wait}
+					handleClick={submitRapidFire}
 				/>
 			</div>
     </div>
