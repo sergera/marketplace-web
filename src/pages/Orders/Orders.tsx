@@ -12,7 +12,7 @@ import { RootState, Dispatch } from '../../state';
 
 export function Orders({
 	getOrders,
-	displayList,
+	pageDisplayList,
 }: OrdersProps) {
 
 	useEffect(() => {
@@ -30,7 +30,7 @@ export function Orders({
 					handleClickPrevious={getOrders}
 					handleSelectSize={getOrders}
 				>
-					{displayList.map((order) => {
+					{pageDisplayList.map((order) => {
 						return (
 							<OrderCard order={order} key={order.orderId} />
 						);
@@ -43,7 +43,7 @@ export function Orders({
 
 const mapStateToProps = (state: RootState) => {
 	return {
-		displayList: state.order.displayList,
+		pageDisplayList: state.order.pageDisplayList,
 	};
 };
 

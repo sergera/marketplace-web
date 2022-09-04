@@ -14,12 +14,14 @@ export interface BackendOrder {
 }
 
 export interface OrderSlice {
-	displayList: Order[];
+	pageDisplayList: Order[];
 	sort: string;
 	page: number;
 	pageSize: number;
 	nextPageExists: boolean;
 	previousPageExists: boolean;
+	monitorDisplayList: Order[];
+	monitorLimit: number;
 };
 
 export interface OrderRange {

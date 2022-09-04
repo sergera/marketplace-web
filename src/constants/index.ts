@@ -6,3 +6,4 @@ export * from './ModalTypes';
 export * from './NotificationTypes';
 export * from './ToastTypes';
 export * from './PageSizeTypes';
+export * from './MonitorLimitTypes';

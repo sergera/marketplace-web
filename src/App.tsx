@@ -2,6 +2,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 
 import { ConnectedOrders as Orders } from './pages/Orders';
 import { CreateOrder } from './pages/CreateOrder';
+import { ConnectedLiveMonitor as LiveMonitor } from "./pages/LiveMonitor";
 import { Team } from './pages/Team';
 import { ErrorNotFound } from './pages/ErrorNotFound';
 
@@ -34,6 +35,7 @@ export function App() {
 				<Routes>
 						<Route path={ROUTER_PATHS.orders} element={<Orders />} />
 						<Route path={ROUTER_PATHS.create} element={<CreateOrder />} />
+						<Route path={ROUTER_PATHS.liveMonitor} element={<LiveMonitor />} />
 						<Route path={ROUTER_PATHS.team} element={<Team />} />
 						<Route path={ROUTER_PATHS.notFound} element={<ErrorNotFound />} />
 						<Route path={"*"} element={<Navigate to={ROUTER_PATHS.notFound} />} />

@@ -1,5 +1,6 @@
 @import './pages/Orders/Orders.css';
 @import './pages/CreateOrder/CreateOrder.css';
+@import './pages/LiveMonitor/LiveMonitor.css';
 @import './pages/Team/Team.css';
 @import './pages/ErrorNotFound/ErrorNotFound.css';
 @import './pages/Error/Error.css';

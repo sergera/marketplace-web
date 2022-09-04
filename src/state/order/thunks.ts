@@ -13,8 +13,6 @@ export const updateDisplay = createAsyncThunk<
 >(
 	"order/updateDisplay",
 	async(backendOrders, thunkAPI) => {
-		let { getState, dispatch } = thunkAPI;
-		if(getState().order.displayList.length === 0) await dispatch(getOrders());
 		return convertOrderList(backendOrders);
 	}
 );

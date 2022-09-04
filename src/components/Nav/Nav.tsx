@@ -40,6 +40,18 @@ export function Nav() {
 			</div>
 			<div className="nav__link">
 				<Link 
+					to={ROUTER_PATHS.liveMonitor}
+					style={{
+						color: 'inherit',
+						textDecoration: routeActive(ROUTER_PATHS.liveMonitor) ? 'underline' : 'inherit',
+						padding: '0.5rem'
+					}}
+				>
+					Live Monitor
+				</Link>
+			</div>
+			<div className="nav__link">
+				<Link
 					to={ROUTER_PATHS.team}
 					style={{
 						color: 'inherit',
