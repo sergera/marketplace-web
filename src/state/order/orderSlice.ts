@@ -81,7 +81,8 @@ const orderSlice = createSlice({
 				}
 
 				let idx = state.monitorDisplayList.findIndex((order) => order.orderId === orders[i].orderId);
-				if (idx !== -1 && ORDER_STATUS_PRIORITY[orders[i].status] > ORDER_STATUS_PRIORITY[state.monitorDisplayList[idx].status]) {
+				if (idx !== -1 && ORDER_STATUS_PRIORITY[orders[i].status] >= ORDER_STATUS_PRIORITY[state.monitorDisplayList[idx].status]) {
+					// TODO: change ">=" to ">" after fixing duplicate orders coming through websocket
 					/* if order is in list, replace it */
 					state.monitorDisplayList[idx].status = orders[i].status;
 					continue;
