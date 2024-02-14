@@ -9,7 +9,7 @@ var ws: WebSocket;
 export const listenForOrders = () => {
 	ws = new WebSocket(`ws://${backendURL}/notify-orders`)
 	ws.onmessage = function (event) {
-		const backendOrders = JSON.parse(event.data);
-		store.dispatch(updateDisplay(backendOrders));
+		const backendOrder = JSON.parse(event.data);
+		store.dispatch(updateDisplay([backendOrder]));
 	}
 };
